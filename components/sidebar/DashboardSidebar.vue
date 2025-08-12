@@ -24,19 +24,29 @@ const props = withDefaults(defineProps<SidebarProps>(), {
 const data = {
   navMain: [
     {
-      title: "Home",
-      url: "/e-commerce/home",
-      icon: "lucide-home",
+      title: "Dashboard",
+      url: "/admin/dashboard",
+      icon: "lucide-layout-dashboard",
     },
     {
-      title: "Cart",
-      url: "/e-commerce/cart",
-      icon: "lucide-shopping-cart",
+      title: "Categories",
+      url: "/admin/categories",
+      icon: "lucide-layers",
     },
     {
-      title: "Settings",
-      url: "/e-commerce/setting",
-      icon: "lucide-settings",
+      title: "Products",
+      url: "/admin/products",
+      icon: "lucide-shopping-bag",
+    },
+    {
+      title: "Payments",
+      url: "/admin/payments",
+      icon: "lucide-dollar-sign",
+    },
+    {
+      title: "Users",
+      url: "/admin/users",
+      icon: "lucide-users",
     },
   ],
   NavSecondary: [
