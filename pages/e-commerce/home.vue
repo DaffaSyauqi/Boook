@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col w-[256px] h-full border border-secondary border-[1px] p-6"
+    class="flex flex-col w-[360px] h-full border border-secondary border-[1px] p-6"
   >
     <!-- Search -->
     <div class="relative w-full max-w-sm">
@@ -73,6 +73,57 @@
       </div>
     </div>
     <Separator class="my-4" />
+  </div>
+
+  <div class="flex flex-wrap p-6 gap-2 w-full">
+    <Card class="w-[360px] h-[360px] bg-secondary">
+      <CardHeader>
+        <CardTitle>Create project 1</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent> </CardContent>
+      <CardFooter class="flex justify-between px-6 pb-6"> </CardFooter>
+    </Card>
+    <Card class="w-[360px] h-[360px] bg-secondary">
+      <CardHeader>
+        <CardTitle>Create project 2</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent> </CardContent>
+      <CardFooter class="flex justify-between px-6 pb-6"> </CardFooter>
+    </Card>
+    <Card class="w-[360px] h-[360px] bg-secondary">
+      <CardHeader>
+        <CardTitle>Create project 3</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent> </CardContent>
+      <CardFooter class="flex justify-between px-6 pb-6"> </CardFooter>
+    </Card>
+    <Card class="w-[360px] h-[360px] bg-secondary">
+      <CardHeader>
+        <CardTitle>Create project 4</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent> </CardContent>
+      <CardFooter class="flex justify-between px-6 pb-6"> </CardFooter>
+    </Card>
+    <Card class="w-[360px] h-[360px] bg-secondary">
+      <CardHeader>
+        <CardTitle>Create project 5</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent> </CardContent>
+      <CardFooter class="flex justify-between px-6 pb-6"> </CardFooter>
+    </Card>
+    <Card class="w-[360px] h-[360px] bg-secondary">
+      <CardHeader>
+        <CardTitle>Create project 6</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent> </CardContent>
+      <CardFooter class="flex justify-between px-6 pb-6"> </CardFooter>
+    </Card>
   </div>
 </template>
 
