@@ -3,7 +3,17 @@
     <SidebarFilterProduct />
 
     <div class="flex-1 p-4">
-      <ProductCard />
+      <div class="flex flex-wrap gap-4">
+        <Drawer>
+          <!-- DrawerTrigger -->
+          <ProductCard v-for="i in 5" :key="i" />
+          <!-- DrawerTrigger -->
+
+          <DrawerContent>
+            <ProductDetail />
+          </DrawerContent>
+        </Drawer>
+      </div>
     </div>
   </div>
 </template>
