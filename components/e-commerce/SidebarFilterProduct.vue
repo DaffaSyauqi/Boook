@@ -90,6 +90,7 @@ const colors = [
 const selectedColor = ref(null);
 
 const categories = [
+  "All",
   "Table",
   "Chair",
   "Lamp",
@@ -98,5 +99,5 @@ const categories = [
   "Shoe racks",
   "Bed frame",
 ];
-const selectedCategory = ref(null);
+const selectedCategory = ref("All");
 </script>
