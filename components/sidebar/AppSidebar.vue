@@ -8,7 +8,8 @@
       <NavSecondary :items="data.NavSecondary" class="mt-auto" />
     </SidebarContent>
     <SidebarFooter>
-      <NavUser />
+      <NavUser v-if="userCookie" />
+      <AuthButton v-else />
     </SidebarFooter>
     <SidebarRail />
   </Sidebar>
@@ -16,6 +17,8 @@
 
 <script setup lang="ts">
 import type { SidebarProps } from "@/components/ui/sidebar";
+
+const userCookie: any = useCookie("user");
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: "icon",
