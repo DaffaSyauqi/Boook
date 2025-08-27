@@ -15,7 +15,7 @@
     <!-- Categories -->
     <div class="w-full max-w-sm pt-6">
       <h2 class="text-lg font-bold tracking-tight">Categories</h2>
-      <ScrollArea class="h-48 pr-6">
+      <ScrollArea class="h-32 pr-6">
         <ul class="pt-3 space-y-1">
           <li
             v-for="(category, index) in categories"
@@ -54,6 +54,7 @@
         </div>
       </div>
     </div>
+
     <Separator class="my-4" />
 
     <!-- Color -->
@@ -68,27 +69,35 @@
           :class="{
             'ring-2 ring-primary scale-110': selectedColor === color,
           }"
-          @click="selectedColor = color"
+          @click="setColor(color)"
         ></button>
       </div>
     </div>
+
     <Separator class="my-4" />
+
+    <div class="w-full max-w-sm">
+      <h2 class="text-md tracking-tight">Star Rating</h2>
+      <div class="flex flex-wrap gap-1 pt-3">
+        <Icon
+          v-for="i in 5"
+          :key="i"
+          name="lucide-star"
+          size="24"
+          class="cursor-pointer transition-colors"
+          :class="
+            i <= selectedRating
+              ? 'text-yellow-500 fill-yellow-500'
+              : 'text-gray-300'
+          "
+          @click="setRating(i)"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const price = ref([500, 2000]);
-const colors = [
-  "#000000",
-  "#ffffff",
-  "#888888",
-  "#ff0000",
-  "#00ff00",
-  "#0000ff",
-  "#ff9900",
-];
-const selectedColor = ref(null);
-
 const categories = [
   "All",
   "Table",
@@ -100,4 +109,33 @@ const categories = [
   "Bed frame",
 ];
 const selectedCategory = ref("All");
+
+const price = ref([500, 2000]);
+
+const colors = [
+  "#000000",
+  "#ffffff",
+  "#888888",
+  "#ff0000",
+  "#00ff00",
+  "#0000ff",
+  "#ff9900",
+];
+const selectedColor = ref<string | null>(null);
+function setColor(color: string) {
+  if (selectedColor.value === color) {
+    selectedColor.value = null;
+  } else {
+    selectedColor.value = color;
+  }
+}
+
+const selectedRating = ref<number>(0);
+function setRating(rating: number) {
+  if (selectedRating.value === rating) {
+    selectedRating.value = 0;
+  } else {
+    selectedRating.value = rating;
+  }
+}
 </script>
