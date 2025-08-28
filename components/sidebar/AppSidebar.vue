@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<SidebarProps>(), {
 const data = {
   navMain: [
     {
-      title: "Home",
+      title: "Shop",
       url: "/e-commerce/home",
       icon: "lucide-home",
     },
