@@ -15,7 +15,13 @@
       </div>
       <div class="grid items-center gap-4">
         <Label>Color</Label>
-        <BaseInput v-model="productInput.color" :type="'text'" />
+        <BaseSelect
+          v-model="productInput.color"
+          :options="productColors.map((color) => ({ id: color, name: color }))"
+          option-label="name"
+          option-value="id"
+          placeholder="Select Color"
+        />
       </div>
       <div class="grid items-center gap-4">
         <Label>Price</Label>
@@ -61,8 +67,22 @@ const headers = useHeaders();
 const emit = defineEmits(["submitted", "update:open"]);
 const open = ref(false);
 
+const productColors = [
+  "Black",
+  "White",
+  "Gray",
+  "Red",
+  "Orange",
+  "Yellow",
+  "Green",
+  "Blue",
+  "Purple",
+];
+
 const { productInput, isEdit, loading } = useProductForm(props.product);
 const { categories, getCategories } = useCategoryForm();
+
+console.log(categories);
 
 onMounted(() => {
   getCategories();
