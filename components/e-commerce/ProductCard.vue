@@ -13,8 +13,8 @@
 
     <!-- Konten -->
     <CardContent class="p-0">
-      <div class="flex items-center">
-        <h3 class="font-semibold text-base text-foreground">
+      <div class="flex items-center gap-4">
+        <h3 class="font-semibold text-base text-foreground truncate">
           {{ product?.name }}
         </h3>
         <p class="text-lg font-bold text-foreground ml-auto">

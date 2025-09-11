@@ -1,9 +1,9 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 p-12">
-    <div class="w-full sm:w-auto justify-self-center">
+    <div class="w-full sm:w-auto justify-self-center items-self-center pt-2">
       <!-- Carousel Utama -->
       <Carousel
-        class="relative w-[240px] max-w-xs"
+        class="relative w-[320px] max-w-xs"
         @init-api="(val) => (emblaMainApi = val)"
       >
         <CarouselContent>
@@ -15,7 +15,7 @@
             <img
               :src="img.url"
               :alt="cardData?.name"
-              class="w-[320px] h-[320px] object-cover rounded-lg"
+              class="w-full h-[320px] object-cover border rounded-lg"
             />
           </CarouselItem>
         </CarouselContent>
@@ -23,20 +23,20 @@
 
       <!-- Thumbnails -->
       <Carousel
-        class="relative w-[320px] mt-3"
+        class="relative w-[320px] mt-2"
         @init-api="(val) => (emblaThumbnailApi = val)"
       >
-        <CarouselContent class="flex gap-2">
+        <CarouselContent class="flex gap-2 p-1 ml-0">
           <CarouselItem
             v-for="(img, index) in cardData?.Images"
             :key="index"
-            class="basis-1/5 cursor-pointer"
+            class="pl-0 basis-1/4 cursor-pointer"
             @click="onThumbClick(index)"
           >
             <img
               :src="img.url"
               :alt="cardData?.name"
-              class="w-full h-16 object-cover rounded-md border"
+              class="w-full h-16 object-cover rounded-md border transition-all"
               :class="{
                 'ring-2 ring-primary': selectedIndex === index,
               }"
