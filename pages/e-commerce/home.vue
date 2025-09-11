@@ -3,17 +3,24 @@
     <SidebarFilterProduct />
 
     <div class="flex-1 p-4">
-      <div class="flex flex-wrap gap-4">
-        <Drawer>
-          <!-- DrawerTrigger -->
-          <ProductCard v-for="i in 5" :key="i" />
-          <!-- DrawerTrigger -->
+      <Drawer v-model:open="isDrawerOpen">
+        <div class="flex flex-wrap gap-4">
+          <DrawerTrigger
+            v-for="product in data?.products"
+            :key="product.id"
+            as-child
+          >
+            <ProductCard
+              :product="product"
+              @click="onSelectProduct(product.id)"
+            />
+          </DrawerTrigger>
+        </div>
 
-          <DrawerContent>
-            <ProductDetail />
-          </DrawerContent>
-        </Drawer>
-      </div>
+        <DrawerContent>
+          <ProductDetail :cardData="selectedProduct" />
+        </DrawerContent>
+      </Drawer>
     </div>
   </div>
 </template>
@@ -23,4 +30,23 @@ definePageMeta({
   layout: "e-commerce",
   auth: false,
 });
+
+const headers = useHeaders();
+const isDrawerOpen = ref(false);
+const selectedProduct = ref<any>(null);
+
+const { data, refresh } = await useFetch(
+  "/api/e-commerce/product/get-product",
+  {
+    headers: {
+      ...headers,
+    },
+  }
+);
+
+async function onSelectProduct(id: number) {
+  const { data: detail } = await useFetch(`/api/e-commerce/product/${id}`);
+  selectedProduct.value = detail.value?.product || null;
+  isDrawerOpen.value = true;
+}
 </script>

@@ -6,23 +6,23 @@
       </DialogHeader>
 
       <!-- Carousel -->
-      <Carousel class="relative max-w-sm mx-auto pt-4" v-if="images.length > 0">
+      <Carousel class="relative max-w-sm mx-auto" v-if="images.length > 0">
         <CarouselContent>
           <CarouselItem v-for="img in images" :key="img.id">
             <div class="p-2">
               <Card class="relative">
                 <CardContent
-                  class="flex flex-col items-center justify-center aspect-square gap-2 p-2"
+                  class="flex flex-col items-center justify-center aspect-square p-2"
                 >
                   <img
                     :src="img.url"
                     alt="Product Image"
-                    class="w-full h-full object-cover rounded cursor-pointer"
+                    class="object-cover rounded cursor-pointer"
                     @click="viewImage(img.url)"
                   />
                   <BaseBtn
                     variant="destructive"
-                    class="w-full"
+                    class="w-full mt-auto"
                     label="Delete"
                     @click="removeImageConfirm(img)"
                   >

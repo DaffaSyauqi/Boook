@@ -1,53 +1,53 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 p-12">
-    <div class="w-full sm:w-auto justify-self-center">
+    <div class="w-full sm:w-auto justify-self-center items-self-center pt-2">
+      <!-- Carousel Utama -->
       <Carousel
-        class="relative w-[240px] max-w-xs"
+        class="relative w-[320px] max-w-xs"
         @init-api="(val) => (emblaMainApi = val)"
       >
         <CarouselContent>
-          <CarouselItem v-for="(_, index) in 5" :key="index">
-            <div class="p-1">
-              <Card>
-                <CardContent
-                  class="flex aspect-square items-center justify-center"
-                >
-                  <span class="text-xl font-semibold">{{ index + 1 }}</span>
-                </CardContent>
-              </Card>
-            </div>
+          <CarouselItem
+            v-for="(img, index) in cardData?.Images"
+            :key="index"
+            class="w-full h-full"
+          >
+            <img
+              :src="img.url"
+              :alt="cardData?.name"
+              class="w-full h-[320px] object-cover border rounded-lg"
+            />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
 
+      <!-- Thumbnails -->
       <Carousel
-        class="relative w-[240px] max-w-xs mt-2"
+        class="relative w-[320px] mt-2"
         @init-api="(val) => (emblaThumbnailApi = val)"
       >
-        <CarouselContent class="flex gap-2 ml-0">
+        <CarouselContent class="flex gap-2 p-1 ml-0">
           <CarouselItem
-            v-for="(_, index) in 5"
+            v-for="(img, index) in cardData?.Images"
             :key="index"
-            class="pl-0 basis-1/3 cursor-pointer"
+            class="pl-0 basis-1/4 cursor-pointer"
             @click="onThumbClick(index)"
           >
-            <div
-              class="p-0"
-              :class="index === selectedIndex ? '' : 'opacity-50'"
-            >
-              <Card>
-                <CardContent class="flex items-center justify-center">
-                  <span class="text-xl font-semibold">{{ index + 1 }}</span>
-                </CardContent>
-              </Card>
-            </div>
+            <img
+              :src="img.url"
+              :alt="cardData?.name"
+              class="w-full h-16 object-cover rounded-md border transition-all"
+              :class="{
+                'ring-2 ring-primary': selectedIndex === index,
+              }"
+            />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
     </div>
 
     <div class="flex flex-col gap-2">
-      <h1 class="text-2xl font-bold">Celestial Timekeeper Watch</h1>
+      <h1 class="text-2xl font-bold">{{ cardData?.name }}</h1>
 
       <!-- Rating -->
       <div class="flex items-center gap-2">
@@ -65,8 +65,7 @@
 
       <!-- Price -->
       <div class="flex items-center gap-3">
-        <span class="text-2xl font-semibold">$178.00</span>
-        <span class="line-through text-muted-foreground">$200.00</span>
+        <span class="text-2xl font-semibold">${{ cardData?.price }}</span>
       </div>
 
       <Separator class="my-4" />
@@ -90,17 +89,17 @@
           </div>
         </div>
 
-        <!-- Type -->
+        <!-- Size -->
         <div>
-          <Label class="font-medium">Type :</Label>
+          <Label class="font-medium">Size :</Label>
           <div class="mt-2">
-            <Select v-model="selectedType">
+            <Select v-model="selectedSize">
               <SelectTrigger class="w-40">
-                <SelectValue placeholder="Select type" />
+                <SelectValue placeholder="Select Size" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem
-                  v-for="t in types"
+                  v-for="t in sizes"
                   :key="t"
                   :value="t.toLowerCase()"
                 >
@@ -141,13 +140,30 @@
 <script setup lang="ts">
 import type { CarouselApi } from "@/components/ui/carousel";
 
+const props = defineProps<{
+  cardData: any;
+}>();
+
+const mainImage = ref<string | null>(null);
+const headers = useHeaders();
+
+console.log("cardData:", props.cardData);
+
+watch(
+  () => props.cardData,
+  (val) => {
+    mainImage.value = val?.Images?.[0]?.url || null;
+  },
+  { immediate: true }
+);
+
+// ---- UI states tetap sama seperti sebelumnya ----
 const selectedColor = ref("#ffffff");
-const selectedType = ref("standard");
+const selectedSize = ref(null);
 const quantity = ref(1);
 
 const colors = ["#ffffff", "#ff0000", "#ff9900"];
-
-const types = ["Standard", "Sport", "Premium"];
+const sizes = ["S", "M", "XL"];
 
 const emblaMainApi = ref<CarouselApi>();
 const emblaThumbnailApi = ref<CarouselApi>();
@@ -166,7 +182,6 @@ function onThumbClick(index: number) {
 
 watchOnce(emblaMainApi, (emblaMainApi) => {
   if (!emblaMainApi) return;
-
   onSelect();
   emblaMainApi.on("select", onSelect);
   emblaMainApi.on("reInit", onSelect);
