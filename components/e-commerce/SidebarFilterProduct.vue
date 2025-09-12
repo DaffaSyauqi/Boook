@@ -112,15 +112,7 @@ const selectedCategory = ref("All");
 
 const price = ref([500, 2000]);
 
-const colors = [
-  "#000000",
-  "#ffffff",
-  "#888888",
-  "#ff0000",
-  "#00ff00",
-  "#0000ff",
-  "#ff9900",
-];
+const colors = ["black", "white", "gray", "red", "yellow", "green", "blue"];
 const selectedColor = ref<string | null>(null);
 function setColor(color: string) {
   if (selectedColor.value === color) {

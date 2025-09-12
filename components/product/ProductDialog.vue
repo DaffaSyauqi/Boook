@@ -72,11 +72,9 @@ const productColors = [
   "White",
   "Gray",
   "Red",
-  "Orange",
   "Yellow",
   "Green",
   "Blue",
-  "Purple",
 ];
 
 const { productInput, isEdit, loading } = useProductForm(props.product);

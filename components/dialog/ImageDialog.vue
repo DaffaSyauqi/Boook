@@ -14,12 +14,16 @@
                 <CardContent
                   class="flex flex-col items-center justify-center aspect-square p-2"
                 >
-                  <img
-                    :src="img.url"
-                    alt="Product Image"
-                    class="object-cover rounded cursor-pointer"
-                    @click="viewImage(img.url)"
-                  />
+                  <div
+                    class="w-[300px] h-[300px] flex items-center justify-center"
+                  >
+                    <img
+                      :src="img.url"
+                      alt="Product Image"
+                      class="w-full h-full object-contain"
+                      @click="viewImage(img.url)"
+                    />
+                  </div>
                   <BaseBtn
                     variant="destructive"
                     class="w-full mt-auto"
@@ -68,12 +72,14 @@
 
       <!-- Fullscreen Viewer -->
       <Dialog :open="showViewer" @update:open="showViewer = $event">
-        <DialogContent class="!max-w-4xl p-10">
-          <img
-            :src="selectedImage"
-            alt="Full Image"
-            class="w-full h-auto object-contain"
-          />
+        <DialogContent class="flex items-center justify-center p-6">
+          <div class="w-[500px] h-[500px] flex items-center justify-center">
+            <img
+              :src="selectedImage"
+              alt="Preview Image"
+              class="w-full h-full object-contain"
+            />
+          </div>
         </DialogContent>
       </Dialog>
 
