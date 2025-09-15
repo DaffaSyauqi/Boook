@@ -17,7 +17,7 @@
           </DrawerTrigger>
         </div>
 
-        <DrawerContent>
+        <DrawerContent class="focus-visible:outline-none focus:outline-none">
           <ProductDetail :cardData="selectedProduct" />
         </DrawerContent>
       </Drawer>
