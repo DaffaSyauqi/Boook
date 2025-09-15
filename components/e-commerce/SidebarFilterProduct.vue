@@ -98,6 +98,7 @@
 </template>
 
 <script setup lang="ts">
+const selectedCategory = ref("All");
 const categories = [
   "All",
   "Table",
@@ -108,11 +109,18 @@ const categories = [
   "Shoe racks",
   "Bed frame",
 ];
-const selectedCategory = ref("All");
 
 const price = ref([500, 2000]);
+const colors = {
+  Black: "#000000",
+  White: "#ffffff",
+  Gray: "#808080",
+  Red: "#ff0000",
+  Yellow: "#ffff00",
+  Green: "#00ff00",
+  Blue: "#0000ff",
+};
 
-const colors = ["black", "white", "gray", "red", "yellow", "green", "blue"];
 const selectedColor = ref<string | null>(null);
 function setColor(color: string) {
   if (selectedColor.value === color) {

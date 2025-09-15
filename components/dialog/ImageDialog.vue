@@ -26,7 +26,7 @@
                   </div>
                   <BaseBtn
                     variant="destructive"
-                    class="w-full mt-auto"
+                    class="w-full mt-6"
                     label="Delete"
                     @click="removeImageConfirm(img)"
                   >
