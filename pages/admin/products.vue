@@ -3,7 +3,7 @@
     <h2 class="text-3xl font-bold tracking-tight">Products</h2>
 
     <div class="pt-6">
-      <DataTable :columns="columns" :data="data?.products" column-key="name">
+      <DataTable :columns="columns" :data="products" column-key="name">
         <template #actions>
           <Button @click="openAddDialog">Add Product</Button>
         </template>
@@ -41,13 +41,9 @@ definePageMeta({ layout: "admin" });
 const props = defineProps<{
   product?: Product;
 }>();
-const headers = useHeaders();
 
-const { data, refresh } = await useFetch("/api/admin/product/get", {
-  headers: {
-    ...headers,
-  },
-});
+const headers = useHeaders();
+const { products, refresh } = useProductForm();
 
 const selectedProduct = ref<Product | null>(null);
 const dialogOpen = ref(false);

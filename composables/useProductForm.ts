@@ -10,7 +10,19 @@ export function useProductForm(initialProduct: Product | null = null) {
   });
 
   const isEdit = ref(false);
-  const loading = ref(false);
+  const headers = useHeaders();
+
+  const {
+    data,
+    pending: loading,
+    refresh,
+  } = useFetch("/api/admin/product/get", {
+    headers: {
+      ...headers,
+    },
+  });
+
+  const products = computed<Product[]>(() => data.value?.products ?? []);
 
   watch(
     () => initialProduct,
@@ -42,5 +54,7 @@ export function useProductForm(initialProduct: Product | null = null) {
     productInput,
     isEdit,
     loading,
+    products,
+    refresh,
   };
 }

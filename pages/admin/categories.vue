@@ -3,7 +3,7 @@
     <h2 class="text-3xl font-bold tracking-tight">Category</h2>
 
     <div class="pt-6">
-      <DataTable :columns="columns" :data="data?.categories" column-key="name">
+      <DataTable :columns="columns" :data="categories" column-key="name">
         <template #actions>
           <Button @click="openAddDialog">Add Category</Button>
 
@@ -34,12 +34,7 @@ import { getColumns } from "@/components/categories/categoryColumn";
 definePageMeta({ layout: "admin" });
 
 const headers = useHeaders();
-
-const { data, refresh } = await useFetch("/api/admin/category/get", {
-  headers: {
-    ...headers,
-  },
-});
+const { categories, refresh } = useCategoryForm();
 
 const selectedCategory = ref<Category | null>(null);
 const dialogOpen = ref(false);
