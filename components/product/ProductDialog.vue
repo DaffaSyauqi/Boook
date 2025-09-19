@@ -78,13 +78,7 @@ const productColors = [
 ];
 
 const { productInput, isEdit, loading } = useProductForm(props.product);
-const { categories, getCategories } = useCategoryForm();
-
-console.log(categories);
-
-onMounted(() => {
-  getCategories();
-});
+const { categories } = useCategoryForm();
 
 async function submitInput() {
   try {

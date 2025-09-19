@@ -7,25 +7,19 @@ export function useCategoryForm(initialCategory: Category | null = null) {
   });
 
   const isEdit = ref(false);
-  const loading = ref(false);
+  const headers = useHeaders();
 
-  const categories = ref<Category[]>([]);
-
-  async function getCategories() {
-    loading.value = true;
-    try {
-      const response = await $fetch("/api/admin/category/get");
-      categories.value = response.categories;
-    } catch (error) {
-      console.error("Gagal mengambil kategori:", error);
-    } finally {
-      loading.value = false;
-    }
-  }
-
-  onMounted(() => {
-    getCategories();
+  const {
+    data,
+    pending: loading,
+    refresh,
+  } = useFetch("/api/admin/category/get", {
+    headers: {
+      ...headers,
+    },
   });
+
+  const categories = computed<Category[]>(() => data.value?.categories ?? []);
 
   watch(
     () => initialCategory,
@@ -49,6 +43,6 @@ export function useCategoryForm(initialCategory: Category | null = null) {
     isEdit,
     loading,
     categories,
-    getCategories,
+    refresh,
   };
 }
