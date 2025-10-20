@@ -1,42 +1,42 @@
 # 🛍️ CubeShop — E-Commerce Web App (Nuxt 3)
 
-CubeShop adalah proyek web e-commerce modern yang dibangun menggunakan **Nuxt 3**.  
-Proyek ini dirancang untuk memberikan pengalaman belanja online yang cepat, responsif, dan mudah dikembangkan.
+CubeShop is a modern e-commerce web project built with **Nuxt 3**.  
+It is designed to provide a fast, responsive, and developer-friendly online shopping experience.
 
 ---
 
-## 🚀 Fitur Utama
-- 💳 Sistem toko online berbasis **Nuxt 3**
-- ⚡ Performa tinggi dengan **Vue 3 + Vite**
-- 🎨 UI modern menggunakan **TailwindCSS / shadcn-vue**
-- 📦 Manajemen produk (tambah, edit, hapus, dan upload gambar)
-- 👤 Sistem login dan autentikasi pengguna
-- 🛒 Fitur keranjang belanja dan checkout
-- 🔐 Role-based access (admin dan user)
-- ☁️ Dukungan **Supabase Storage** atau **Firebase** untuk penyimpanan gambar
+## 🚀 Key Features
+- 💳 Online store system powered by **Nuxt 3**
+- ⚡ High performance with **Vue 3 + Vite**
+- 🎨 Modern UI using **TailwindCSS / shadcn-vue**
+- 📦 Product management (add, edit, delete, and image upload)
+- 👤 User authentication and login system
+- 🛒 Shopping cart and checkout feature
+- 🔐 Role-based access control (admin and user)
+- ☁️ **Supabase Storage** or **Firebase** support for image storage
 
 ---
 
-## 🧩 Teknologi yang Digunakan
+## 🧩 Technologies Used
 - [Nuxt 3](https://nuxt.com)
 - [Vue 3](https://vuejs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [shadcn-vue](https://www.shadcn-vue.com/)
 - [Supabase](https://supabase.com/)
-- [Prisma / Sequelize (opsional)](https://www.prisma.io/)
+- [Prisma / Sequelize (optional)](https://www.prisma.io/)
 - [PostgreSQL / MySQL](https://www.postgresql.org/)
 
 ---
 
-## ⚙️ Setup Project
+## ⚙️ Project Setup
 
-Pastikan sudah menginstal **Node.js (v18+)** dan salah satu package manager berikut:
-- npm
-- pnpm
-- yarn
-- bun
+Make sure you have **Node.js (v18+)** installed and one of the following package managers:
+- npm  
+- pnpm  
+- yarn  
+- bun  
 
-### 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/DaffaSyauqi/CubeShop.git
 cd CubeShop
@@ -57,21 +57,21 @@ yarn install
 bun install
 ```
 
-### 3️⃣ Jalankan Development Server
+### 3️⃣ Run the Development Server
 ```bash
 npm run dev
 ```
 
 ---
 
-### 🧑‍💻 Kontributor
+### 🧑‍💻 Contributor
 
-@DaffaSyauqi — Developer utama proyek CubeShop
+@DaffaSyauqi — Main developer of CubeShop
 
 ---
 
-### 📄 Lisensi
+### 📄 License
 
-Proyek ini dirilis di bawah lisensi MIT — silakan digunakan dan dikembangkan lebih lanjut.
+This project is released under the MIT License — feel free to use and modify it.
 
 
