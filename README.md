@@ -1,11 +1,48 @@
-# Nuxt Minimal Starter
+# 🛍️ CubeShop — E-Commerce Web App (Nuxt 3)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+CubeShop adalah proyek web e-commerce modern yang dibangun menggunakan **Nuxt 3**.  
+Proyek ini dirancang untuk memberikan pengalaman belanja online yang cepat, responsif, dan mudah dikembangkan.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## 🚀 Fitur Utama
+- 💳 Sistem toko online berbasis **Nuxt 3**
+- ⚡ Performa tinggi dengan **Vue 3 + Vite**
+- 🎨 UI modern menggunakan **TailwindCSS / shadcn-vue**
+- 📦 Manajemen produk (tambah, edit, hapus, dan upload gambar)
+- 👤 Sistem login dan autentikasi pengguna
+- 🛒 Fitur keranjang belanja dan checkout
+- 🔐 Role-based access (admin dan user)
+- ☁️ Dukungan **Supabase Storage** atau **Firebase** untuk penyimpanan gambar
 
+---
+
+## 🧩 Teknologi yang Digunakan
+- [Nuxt 3](https://nuxt.com)
+- [Vue 3](https://vuejs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [shadcn-vue](https://www.shadcn-vue.com/)
+- [Supabase](https://supabase.com/)
+- [Prisma / Sequelize (opsional)](https://www.prisma.io/)
+- [PostgreSQL / MySQL](https://www.postgresql.org/)
+
+---
+
+## ⚙️ Setup Project
+
+Pastikan sudah menginstal **Node.js (v18+)** dan salah satu package manager berikut:
+- npm
+- pnpm
+- yarn
+- bun
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/DaffaSyauqi/CubeShop.git
+cd CubeShop
+```
+
+### 2️⃣ Install Dependencies
 ```bash
 # npm
 npm install
@@ -20,56 +57,21 @@ yarn install
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+### 3️⃣ Jalankan Development Server
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+---
 
-Build the application for production:
+### 🧑‍💻 Kontributor
 
-```bash
-# npm
-npm run build
+@DaffaSyauqi — Developer utama proyek CubeShop
 
-# pnpm
-pnpm build
+---
 
-# yarn
-yarn build
+### 📄 Lisensi
 
-# bun
-bun run build
-```
+Proyek ini dirilis di bawah lisensi MIT — silakan digunakan dan dikembangkan lebih lanjut.
 
-Locally preview production build:
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
