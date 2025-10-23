@@ -8,4 +8,6 @@
 definePageMeta({
   auth: false,
 });
+
+console.log(false == 1);
 </script>
