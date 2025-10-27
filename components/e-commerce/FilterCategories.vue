@@ -4,13 +4,23 @@
     <ScrollArea class="h-32 pr-6">
       <ul class="pt-3 space-y-1">
         <li
+          class="pl-2 py-1 cursor-pointer text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"
+          @click="filters.setCategory(null)"
+          :class="{
+            'text-primary bg-secondary rounded-lg':
+              filters.selectedCategory === null,
+          }"
+        >
+          All
+        </li>
+        <li
           v-for="(category, index) in categories.map((cat) => cat.name)"
           :key="index"
           class="pl-2 py-1 cursor-pointer text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"
-          @click="selectedCategory = category"
+          @click="filters.setCategory(category)"
           :class="{
             'text-primary bg-secondary rounded-lg':
-              selectedCategory === category,
+              filters.selectedCategory === category,
           }"
         >
           {{ category }}
@@ -22,7 +32,7 @@
 
 <script setup lang="ts">
 const { categories, refresh } = useCategoryForm();
-const selectedCategory = ref("");
+const filters = useProductFilters();
 </script>
 
 <style lang="scss" scoped></style>
