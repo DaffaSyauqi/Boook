@@ -37,11 +37,9 @@ const headers = useHeaders();
 const isDrawerOpen = ref(false);
 const selectedProduct = ref<any>(null);
 
-// ✅ Ambil store Pinia dan buat reactive ref
 const filters = useProductFilters();
 const { selectedCategory } = storeToRefs(filters);
 
-// ✅ Fetch product (dijalankan pertama kali)
 const baseUrl = "/api/e-commerce/product/get-product";
 const { data, refresh } = await useFetch(
   () => {
@@ -52,12 +50,10 @@ const { data, refresh } = await useFetch(
   { headers }
 );
 
-// ✅ Watch perubahan kategori → refresh data produk
 watch(selectedCategory, () => {
   refresh();
 });
 
-// ✅ Detail produk
 async function onSelectProduct(id: number) {
   const { data: detail } = await useFetch(`/api/e-commerce/product/${id}`);
   selectedProduct.value = detail.value?.product || null;
