@@ -3,18 +3,40 @@ import prisma from "~/utils/server.prisma";
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   const category = query.category as string | undefined;
+  const color = query.color as string | undefined;
+  const minPrice = query.minPrice
+    ? parseFloat(query.minPrice as string)
+    : undefined;
+  const maxPrice = query.maxPrice
+    ? parseFloat(query.maxPrice as string)
+    : undefined;
+  const rating = query.rating ? parseFloat(query.rating as string) : undefined;
 
   try {
+    const whereClause: any = {};
+
+    if (category) {
+      whereClause.category = {
+        is: { name: category },
+      };
+    }
+
+    if (color) {
+      whereClause.color = color;
+    }
+
+    if (minPrice !== undefined || maxPrice !== undefined) {
+      whereClause.price = {};
+      if (minPrice !== undefined) whereClause.price.gte = minPrice;
+      if (maxPrice !== undefined) whereClause.price.lte = maxPrice;
+    }
+
+    // if (rating !== undefined) {
+    //   whereClause.rating = { gte: rating };
+    // }
+
     const products = await prisma.product.findMany({
-      where: category
-        ? {
-            category: {
-              is: {
-                name: category,
-              },
-            },
-          }
-        : undefined,
+      where: Object.keys(whereClause).length > 0 ? whereClause : undefined,
       orderBy: {
         createdAt: "desc",
       },

@@ -1,6 +1,3 @@
-// composables/useProductFilters.ts
-import { defineStore } from "pinia";
-
 export const useProductFilters = defineStore("productFilters", {
   state: () => ({
     selectedCategory: null as string | null,
