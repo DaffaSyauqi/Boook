@@ -3,21 +3,23 @@
     <h2 class="text-md tracking-tight">Color</h2>
     <div class="flex flex-wrap gap-1 pt-3">
       <button
-        v-for="(color, index) in colors"
-        :key="index"
-        :style="{ backgroundColor: color }"
+        v-for="(hex, color) in colors"
+        :key="color"
+        :style="{ backgroundColor: hex }"
         class="w-6 h-6 rounded-full border border-muted transition-all"
         :class="{
-          'ring-2 ring-primary scale-110': selectedColor === color,
+          'ring-2 ring-primary scale-110': filters.selectedColor === color,
         }"
-        @click="setColor(color)"
+        @click="changeColor(color)"
       ></button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const colors = {
+const filters = useProductFilters();
+
+const colors: Record<string, string> = {
   Black: "#000000",
   White: "#ffffff",
   Gray: "#808080",
@@ -27,14 +29,11 @@ const colors = {
   Blue: "#0000ff",
 };
 
-const selectedColor = ref<string | null>(null);
-function setColor(color: string) {
-  if (selectedColor.value === color) {
-    selectedColor.value = null;
+function changeColor(color: string) {
+  if (filters.selectedColor === color) {
+    filters.setColor(null);
   } else {
-    selectedColor.value = color;
+    filters.setColor(color);
   }
 }
 </script>
-
-<style scoped></style>

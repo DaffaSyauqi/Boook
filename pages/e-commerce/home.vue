@@ -38,20 +38,19 @@ const isDrawerOpen = ref(false);
 const selectedProduct = ref<any>(null);
 
 const filters = useProductFilters();
-const { selectedCategory } = storeToRefs(filters);
-
 const baseUrl = "/api/e-commerce/product/get-product";
-const { data, refresh } = await useFetch(
-  () => {
-    return selectedCategory.value
-      ? `${baseUrl}?category=${selectedCategory.value}`
-      : baseUrl;
-  },
-  { headers }
-);
 
-watch(selectedCategory, () => {
-  refresh();
+const queryParams = computed(() => ({
+  category: filters.selectedCategory || undefined,
+  color: filters.selectedColor || undefined,
+  minPrice: filters.priceRange[0],
+  maxPrice: filters.priceRange[1],
+  // rating: filters.rating > 0 ? filters.rating : undefined,
+}));
+
+const { data, refresh } = await useFetch(baseUrl, {
+  params: queryParams,
+  immediate: true,
 });
 
 async function onSelectProduct(id: number) {
