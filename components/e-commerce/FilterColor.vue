@@ -10,7 +10,7 @@
         :class="{
           'ring-2 ring-primary scale-110': filters.selectedColor === color,
         }"
-        @click="changeColor(color)"
+        @click="filterColor(color)"
       ></button>
     </div>
   </div>
@@ -29,7 +29,7 @@ const colors: Record<string, string> = {
   Blue: "#0000ff",
 };
 
-function changeColor(color: string) {
+function filterColor(color: string) {
   if (filters.selectedColor === color) {
     filters.setColor(null);
   } else {
