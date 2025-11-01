@@ -7,13 +7,13 @@ It is designed to provide a fast, responsive, and developer-friendly online shop
 
 ## 🚀 Key Features
 - 💳 Online store system powered by **Nuxt 3**
-- ⚡ High performance with **Vue 3 + Vite**
-- 🎨 Modern UI using **TailwindCSS / shadcn-vue**
-- 📦 Product management (add, edit, delete, and image upload)
+- ⚡ High performance with **Vue 3**
+- 🎨 Modern UI using **shadcn-vue**
+- 📦 Product management
 - 👤 User authentication and login system
 - 🛒 Shopping cart and checkout feature
-- 🔐 Role-based access control (admin and user)
-- ☁️ **Supabase Storage** or **Firebase** support for image storage
+- 🔐 Role-based access control
+- ☁️ **Supabase Storage** support
 
 ---
 
