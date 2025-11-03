@@ -1,43 +1,61 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
+  // provider    = "prisma-client"
+  // output       = "../generated/prisma"
+  // moduleFormat = "esm"
+  // binaryTargets = ["native", "windows", "debian-openssl-3.0.x"]
+
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
-  email        String  @unique
+  id           Int             @id @default(autoincrement())
+  email        String          @unique
   isValidEmail Int
   otpCode      String
   name         String?
   password     String
+  role         String?
+  reviews      ProductReview[]
 }
 
 model Category {
-  id      Int       @id @default(autoincrement())
-  name    String    @unique
-  Product Product[]
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
 }
 
 model Product {
-  id         Int      @id @default(autoincrement())
-  name       String
-  slug       String   
-  color      String
-  price      Float
-  categoryId Int
-  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  Images     Image[]
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id           Int                  @id @default(autoincrement())
+  name         String
+  slug         String?
+  color        String
+  price        Decimal              @db.Decimal(10, 2)
+  categoryId   Int
+  category     Category             @relation(fields: [categoryId], references: [id])
+  images       Image[]
+  reviews      ProductReview[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProductReview {
+  id         Int    @id @default(autoincrement())
+  userId     Int
+  starNumber Int
+  productId  Int
+  comment    String
+
+  user    User    @relation(fields: [userId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Image {
