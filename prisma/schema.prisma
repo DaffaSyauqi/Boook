@@ -28,6 +28,9 @@ model Category {
   id       Int       @id @default(autoincrement())
   name     String    @unique
   products Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Product {
@@ -37,7 +40,7 @@ model Product {
   color        String
   price        Decimal              @db.Decimal(10, 2)
   categoryId   Int
-  category     Category             @relation(fields: [categoryId], references: [id])
+  category     Category             @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   images       Image[]
   reviews      ProductReview[]
   stars        productStar[]
@@ -53,8 +56,9 @@ model payment {
   productId Int
   userId    Int
   amount    Decimal @db.Decimal(10, 2)
-  product   Product @relation(fields: [productId], references: [id])
-  user      User    @relation(fields: [userId], references: [id])
+  product   Product? @relation(fields: [productId], references: [id], onUpdate: Cascade)
+  user      User?    @relation(fields: [userId], references: [id], onUpdate: Cascade)
+
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -65,7 +69,7 @@ model productStarPercent {
   productId Int
   times     Int
   star      Int
-  product   Product  @relation(fields: [productId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -74,7 +78,7 @@ model productStar {
   id            Int      @id @default(autoincrement())
   productId     Int
   receivedStars Int
-  product       Product  @relation(fields: [productId], references: [id])
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -86,8 +90,8 @@ model ProductReview {
   productId  Int
   comment    String
 
-  user    User    @relation(fields: [userId], references: [id])
-  product Product @relation(fields: [productId], references: [id])
+  user    User?   @relation(fields: [userId], references: [id], onUpdate: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -97,5 +101,5 @@ model Image {
   id        Int     @id @default(autoincrement())
   url       String
   productId Int
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
