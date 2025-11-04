@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     where: { id },
     include: {
       category: true,
-      Images: true,
+      images: true,
     },
   });
 

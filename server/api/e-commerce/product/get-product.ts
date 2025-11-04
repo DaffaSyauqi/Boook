@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
       },
       include: {
         category: true,
-        Images: true,
+        images: true,
       },
     });
 
