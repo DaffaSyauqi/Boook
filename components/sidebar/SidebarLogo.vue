@@ -9,11 +9,11 @@
               <AvatarFallback
                 class="rounded-lg bg-primary text-primary-foreground"
               >
-                <Icon name="lucide-box" size="20" />
+                <Icon name="lucide-book-open" size="20" />
               </AvatarFallback>
             </Avatar>
             <div class="flex flex-col gap-0.5 leading-none">
-              <span class="truncate font-medium"> CubeShop </span>
+              <span class="truncate font-medium"> BookNest </span>
             </div>
           </div>
         </NuxtLink>

@@ -14,10 +14,10 @@
                 <div
                   class="flex h-8 w-8 items-center justify-center rounded-md"
                 >
-                  <Icon name="lucide-box" size="32" />
+                  <Icon name="lucide-book-open" size="32" />
                 </div>
               </NuxtLink>
-              <h1 class="text-xl font-bold">Welcome to CubeShop.</h1>
+              <h1 class="text-xl font-bold">Welcome to BookNest.</h1>
               <div class="text-center text-sm">
                 Already have an account?
                 <NuxtLink to="/auth/login" class="underline underline-offset-4">
