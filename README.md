@@ -1,7 +1,7 @@
-# 🛍️ CubeShop — E-Commerce Web App (Nuxt 3)
+# 🛍️ BookNest — E-Commerce Web App 
 
-CubeShop is a modern e-commerce web project built with **Nuxt 3**.  
-It is designed to provide a fast, responsive, and developer-friendly online shopping experience.
+BookNest is a modern book e-commerce web project built with **Nuxt 3**.  
+It is designed to provide a fast, responsive, and simple.
 
 ---
 
