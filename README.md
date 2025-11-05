@@ -1,4 +1,4 @@
-# 🛍️ BookNest — E-Commerce Web App 
+# 📚 BookNest — E-Commerce Web App 
 
 BookNest is a modern book e-commerce web project built with **Nuxt 3**.  
 It is designed to provide a fast, responsive, and simple.
