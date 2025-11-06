@@ -23,8 +23,8 @@ It is designed to provide a fast, responsive, and simple.
 - [TailwindCSS](https://tailwindcss.com/)
 - [shadcn-vue](https://www.shadcn-vue.com/)
 - [Supabase](https://supabase.com/)
-- [Prisma / Sequelize (optional)](https://www.prisma.io/)
-- [PostgreSQL / MySQL](https://www.postgresql.org/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 ---
 
