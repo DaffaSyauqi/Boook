@@ -30,7 +30,7 @@ It is designed to provide a fast, responsive, and simple.
 
 ## ⚙️ Project Setup
 
-Make sure you have **Node.js (v18+)** installed and one of the following package managers:
+Make sure you have **Node.js (v20+)** installed and one of the following package managers:
 - npm  
 - pnpm  
 - yarn  
@@ -38,8 +38,8 @@ Make sure you have **Node.js (v18+)** installed and one of the following package
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/DaffaSyauqi/CubeShop.git
-cd CubeShop
+git clone https://github.com/DaffaSyauqi/BookNest.git
+cd BookNest
 ```
 
 ### 2️⃣ Install Dependencies
@@ -66,7 +66,7 @@ npm run dev
 
 ### 🧑‍💻 Contributor
 
-@DaffaSyauqi — Main developer of CubeShop
+@DaffaSyauqi — Main developer of BookNest
 
 ---
 
