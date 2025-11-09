@@ -3,10 +3,10 @@ import { productShema } from "./modules/validateProduct";
 import slugify from "slugify";
 
 export default defineEventHandler(async (event) => {
-  const { name, color, price, categoryId } = await readBody(event);
+  const { name, price, categoryId } = await readBody(event);
   const slug = slugify(name, { lower: true, strict: true });
 
-  const result = productShema.safeParse({ name, color, price, categoryId });
+  const result = productShema.safeParse({ name, price, categoryId });
 
   if (!result.success) {
     return sendError(
@@ -23,7 +23,6 @@ export default defineEventHandler(async (event) => {
     data: {
       name,
       slug,
-      color,
       price,
       categoryId,
     },

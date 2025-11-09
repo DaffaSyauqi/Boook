@@ -23,10 +23,6 @@
     <FilterPrice />
     <Separator class="my-4" />
 
-    <!-- Color -->
-    <FilterColor />
-    <Separator class="my-4" />
-
     <!-- Star Rating -->
     <FilterStarRating />
   </div>

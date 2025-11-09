@@ -4,7 +4,6 @@ export function useProductForm(initialProduct: Product | null = null) {
   const productInput = ref<Product>({
     id: null,
     name: "",
-    color: "",
     price: 0,
     categoryId: null,
   });
@@ -31,7 +30,6 @@ export function useProductForm(initialProduct: Product | null = null) {
         productInput.value = {
           id: newVal.id,
           name: newVal.name,
-          color: newVal.color,
           price: newVal.price,
           categoryId: newVal.categoryId,
         };
@@ -40,7 +38,6 @@ export function useProductForm(initialProduct: Product | null = null) {
         productInput.value = {
           id: null,
           name: "",
-          color: "",
           price: 0,
           categoryId: null,
         };
