@@ -38,14 +38,6 @@ export function getColumns(
         }),
     },
     {
-      accessorKey: "color",
-      header: ({ column }) =>
-        h(DataTableColumnHeader, {
-          column,
-          title: "Color",
-        }),
-    },
-    {
       accessorKey: "price",
       header: ({ column }) =>
         h(DataTableColumnHeader, {

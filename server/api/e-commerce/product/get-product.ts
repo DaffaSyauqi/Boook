@@ -3,7 +3,6 @@ import prisma from "~/utils/server.prisma";
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   const category = query.category as string | undefined;
-  const color = query.color as string | undefined;
   const minPrice = query.minPrice
     ? parseFloat(query.minPrice as string)
     : undefined;
@@ -19,10 +18,6 @@ export default defineEventHandler(async (event) => {
       whereClause.category = {
         is: { name: category },
       };
-    }
-
-    if (color) {
-      whereClause.color = color;
     }
 
     if (minPrice !== undefined || maxPrice !== undefined) {

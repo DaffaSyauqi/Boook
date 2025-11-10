@@ -42,7 +42,6 @@ const baseUrl = "/api/e-commerce/product/get-product";
 
 const queryParams = computed(() => ({
   category: filters.selectedCategory || undefined,
-  color: filters.selectedColor || undefined,
   minPrice: filters.priceRange[0],
   maxPrice: filters.priceRange[1],
   rating: filters.rating > 0 ? filters.rating : undefined,

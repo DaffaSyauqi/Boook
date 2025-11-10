@@ -72,23 +72,6 @@
 
       <!-- Options -->
       <div class="flex gap-12">
-        <!-- Color -->
-        <div>
-          <Label class="font-medium">Color :</Label>
-          <div class="flex gap-2 mt-4">
-            <button
-              v-for="(color, index) in colors(props.cardData?.color || '')"
-              :key="index"
-              :style="{ backgroundColor: color }"
-              class="w-6 h-6 rounded-full border border-muted transition-all"
-              :class="{
-                'ring-2 ring-primary scale-110': selectedColor === color,
-              }"
-              @click="selectedColor = color"
-            ></button>
-          </div>
-        </div>
-
         <!-- Size -->
         <div>
           <Label class="font-medium">Size :</Label>
@@ -158,30 +141,6 @@ watch(
 const selectedColor = ref("");
 const selectedSize = ref(null);
 const quantity = ref(1);
-
-const colorsData = {
-  Black: "#000000",
-  White: "#ffffff",
-  Gray: "#808080",
-  Red: "#ff0000",
-  Yellow: "#ffff00",
-  Green: "#00ff00",
-  Blue: "#0000ff",
-};
-
-const colors = (color: string) => {
-  if (color in colorsData) {
-    return [colorsData[color as keyof typeof colorsData]];
-  }
-  return [];
-};
-
-watchEffect(() => {
-  if (props.cardData?.color && props.cardData.color in colorsData) {
-    selectedColor.value =
-      colorsData[props.cardData.color as keyof typeof colorsData];
-  }
-});
 
 const sizes = ["S", "M", "XL"];
 

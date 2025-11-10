@@ -14,16 +14,6 @@
         <BaseInput v-model="productInput.name" :type="'text'" />
       </div>
       <div class="grid items-center gap-4">
-        <Label>Color</Label>
-        <BaseSelect
-          v-model="productInput.color"
-          :options="productColors.map((color) => ({ id: color, name: color }))"
-          option-label="name"
-          option-value="id"
-          placeholder="Select Color"
-        />
-      </div>
-      <div class="grid items-center gap-4">
         <Label>Price</Label>
         <BaseInput v-model="productInput.price" :type="'number'" />
       </div>
@@ -67,16 +57,6 @@ const headers = useHeaders();
 const emit = defineEmits(["submitted", "update:open"]);
 const open = ref(false);
 
-const productColors = [
-  "Black",
-  "White",
-  "Gray",
-  "Red",
-  "Yellow",
-  "Green",
-  "Blue",
-];
-
 const { productInput, isEdit, loading } = useProductForm(props.product);
 const { categories } = useCategoryForm();
 
@@ -98,7 +78,6 @@ async function submitInput() {
     productInput.value = {
       id: null,
       name: "",
-      color: "",
       price: 0,
       categoryId: null,
     };
