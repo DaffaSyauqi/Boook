@@ -5,7 +5,7 @@
     <!-- Gambar produk -->
     <CardHeader class="p-0">
       <img
-        :src="product?.Images?.[0]?.url"
+        :src="product?.images?.[0]?.url"
         :alt="product?.name"
         class="rounded-xl object-cover w-[240px] h-[240px] border"
       />

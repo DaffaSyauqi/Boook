@@ -8,7 +8,7 @@
       >
         <CarouselContent>
           <CarouselItem
-            v-for="(img, index) in cardData?.Images"
+            v-for="(img, index) in cardData?.images"
             :key="index"
             class="w-full h-full"
           >
@@ -28,7 +28,7 @@
       >
         <CarouselContent class="flex gap-2 p-1 ml-0">
           <CarouselItem
-            v-for="(img, index) in cardData?.Images"
+            v-for="(img, index) in cardData?.images"
             :key="index"
             class="pl-0 basis-1/4 cursor-pointer"
             @click="onThumbClick(index)"
@@ -60,37 +60,25 @@
           />
           <Icon name="lucide-star" class="w-4 h-4 text-gray-300" />
         </div>
-        <span class="text-xs text-muted-foreground">(213)</span>
+        <span class="text-xs text-muted-foreground">(100)</span>
       </div>
 
       <!-- Price -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center">
         <span class="text-2xl font-semibold">${{ cardData?.price }}</span>
       </div>
 
-      <Separator class="my-4" />
+      <Separator class="" />
 
-      <!-- Options -->
-      <div class="flex gap-12">
-        <!-- Size -->
-        <div>
-          <Label class="font-medium">Size :</Label>
-          <div class="mt-2">
-            <Select v-model="selectedSize">
-              <SelectTrigger class="w-40">
-                <SelectValue placeholder="Select Size" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="t in sizes"
-                  :key="t"
-                  :value="t.toLowerCase()"
-                >
-                  {{ t }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+      <div>
+        <Label class="" for="quantity">Desciption</Label>
+        <p class="mt-1">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
+          omnis soluta unde sed ducimus, necessitatibus optio? Quidem, voluptas!
+          Ea, porro? Architecto aut et maxime!
+        </p>
+        <div class="flex justify-end">
+          <Button variant="link" size="sm" class="">Read More</Button>
         </div>
       </div>
 
@@ -103,7 +91,7 @@
           :min="0"
           :max="10"
         >
-          <Label class="mt-2" for="quantity">Quantity</Label>
+          <Label class="" for="quantity">Quantity</Label>
           <NumberFieldContent>
             <NumberFieldDecrement />
             <NumberFieldInput />
@@ -114,7 +102,14 @@
 
       <!-- Buttons -->
       <div class="flex gap-3 mt-2">
-        <Button class="flex-1">Add to cart</Button>
+        <Button class="flex-1 items-center" variant="outline">
+          <Icon name="lucide-shopping-cart" class="text-xl" />
+          Add to cart
+        </Button>
+        <Button class="flex-1">
+          <Icon name="lucide-message-square" class="text-xl" />
+          Review
+        </Button>
       </div>
     </div>
   </div>
@@ -133,16 +128,13 @@ const headers = useHeaders();
 watch(
   () => props.cardData,
   (val) => {
-    mainImage.value = val?.Images?.[0]?.url || null;
+    mainImage.value = val?.images?.[0]?.url || null;
   },
   { immediate: true }
 );
 
 const selectedColor = ref("");
-const selectedSize = ref(null);
 const quantity = ref(1);
-
-const sizes = ["S", "M", "XL"];
 
 const emblaMainApi = ref<CarouselApi>();
 const emblaThumbnailApi = ref<CarouselApi>();
