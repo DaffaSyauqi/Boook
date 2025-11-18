@@ -25,6 +25,9 @@
 
     <!-- Star Rating -->
     <FilterStarRating />
+    <Separator class="my-4" />
+
+    <Button> Clear all filters </Button>
   </div>
 </template>
 

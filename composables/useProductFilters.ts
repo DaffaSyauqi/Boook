@@ -1,7 +1,7 @@
 export const useProductFilters = defineStore("productFilters", {
   state: () => ({
     selectedCategory: null as string | null,
-    priceRange: [0, 2000] as [number, number],
+    priceRange: [0, 1000] as [number, number],
     rating: 0 as number,
   }),
 

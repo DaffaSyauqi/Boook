@@ -5,8 +5,8 @@
       <Slider
         v-model="localPrice"
         :min="0"
-        :max="2000"
-        :step="10"
+        :max="1000"
+        :step="5"
         class="w-full"
         @update:model-value="(value) => updatePriceRange(value as [number, number])"
       />
