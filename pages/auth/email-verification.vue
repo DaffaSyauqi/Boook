@@ -1,31 +1,4 @@
 <template>
-  <!-- <div class="flex min-h-svh flex-col items-center justify-center gap-4">
-    <h1 class="text-2xl font-bold">Email Verification</h1>
-    <PinInput id="pin-input" v-model="otpInput" placeholder="○">
-      <PinInputGroup class="gap-1">
-        <template v-for="(id, index) in 6" :key="index">
-          <PinInputSlot
-            class="rounded-md border w-10 h-10 text-center text-lg"
-            :index="index"
-          />
-          <template v-if="index !== 5">
-            <PinInputSeparator>
-              <span class="px-1 text-xl font-bold">-</span>
-            </PinInputSeparator>
-          </template>
-        </template>
-      </PinInputGroup>
-    </PinInput>
-
-    <div class="flex gap-2">
-      <BaseBtn
-        @click="verifyEmail"
-        label="Verify your Email"
-        :loading="loading"
-      />
-    </div>
-  </div> -->
-
   <div
     class="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10"
   >
@@ -99,42 +72,44 @@ definePageMeta({
   auth: false,
 });
 
-const otpInput = ref<string[]>([]);
+const otpInput = ref("");
 const loading = ref(false);
+
 const router = useRouter();
 const registerStore = useRegisterStore();
 const { registerInput } = storeToRefs(registerStore);
 
-onMounted(() => {
-  registerInput.value.otpCode = "";
+watch(otpInput, (value) => {
+  registerInput.value.otpCode = value;
 });
 
 async function verifyEmail() {
-  try {
-    loading.value = true;
+  const otp = registerInput.value.otpCode;
 
+  if (otp.length !== 6 || !/^\d+$/.test(otp)) {
+    return errorMsg("OTP harus 6 digit angka.");
+  }
+
+  loading.value = true;
+  try {
     const response = await $fetch("/api/auth/email-verification", {
       method: "POST",
       body: registerInput.value,
     });
 
-    loading.value = false;
-    const successMessage =
-      (response as { data?: { message?: string } })?.data?.message ||
-      "Verification successfully!";
+    const successMessage = response?.message ?? "Verification successfully!";
 
     successMsg(successMessage);
 
     setTimeout(() => {
       router.push("/auth/login");
     }, 1000);
-  } catch (error: unknown) {
-    loading.value = false;
-    const errorMessage =
-      (error as { data?: { message?: string } })?.data?.message ||
-      "Something went wrong";
+  } catch (error: any) {
+    const errorMessage = error?.data?.message ?? "Something went wrong";
 
     errorMsg(errorMessage);
+  } finally {
+    loading.value = false;
   }
 }
 </script>
