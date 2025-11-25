@@ -7,7 +7,7 @@
       >
         <Avatar class="h-8 w-8 rounded-lg">
           <AvatarImage src="" />
-          <AvatarFallback class="rounded-lg">C</AvatarFallback>
+          <AvatarFallback class="rounded-lg">B</AvatarFallback>
         </Avatar>
         <div class="grid flex-1 text-left text-sm leading-tight">
           <span class="truncate font-semibold">{{ name }}</span>

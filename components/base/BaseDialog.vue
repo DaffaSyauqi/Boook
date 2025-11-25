@@ -7,7 +7,7 @@
     <DialogContent class="sm:max-w-[425px]">
       <DialogHeader>
         <DialogTitle>{{ title }}</DialogTitle>
-        <!-- <DialogDescription>{{ description }}</DialogDescription> -->
+        <DialogDescription>{{ title }}</DialogDescription>
       </DialogHeader>
 
       <slot />
@@ -22,6 +22,5 @@
 <script setup lang="ts">
 defineProps<{
   title: string;
-  //   description: string;
 }>();
 </script>
