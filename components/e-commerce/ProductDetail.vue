@@ -113,10 +113,19 @@
           <Icon name="lucide-shopping-cart" class="text-xl" />
           Add to cart
         </Button>
-        <Button class="flex-1">
-          <Icon name="lucide-message-square" class="text-xl" />
-          Review
-        </Button>
+        <Dialog>
+          <DialogTrigger>
+            <Button class="items-center">
+              <Icon name="lucide-message-square" class="text-xl" />
+              Review
+            </Button>
+          </DialogTrigger>
+          <DialogContent
+            class="!w-[90vw] !h-[90vh] !max-w-4xl rounded-xl overflow-hidden flex flex-col"
+          >
+            <ReviewDialog />
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   </div>
