@@ -1,7 +1,7 @@
 <template>
   <div class="w-full max-w-sm">
-    <h2 class="text-md tracking-tight pt-2">Price</h2>
-    <div class="py-4">
+    <h2 class="text-md tracking-tight">Price</h2>
+    <div class="py-2">
       <Slider
         v-model="localPrice"
         :min="0"
