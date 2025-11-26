@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full max-w-sm pt-6">
+  <div class="w-full max-w-sm">
     <h2 class="text-lg font-bold tracking-tight">Categories</h2>
-    <ScrollArea class="h-32 pr-6">
+    <ScrollArea class="h-24 pr-6">
       <ul class="pt-3 space-y-1">
         <li
           class="pl-2 py-1 cursor-pointer text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"

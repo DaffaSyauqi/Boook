@@ -1,7 +1,7 @@
 <template>
   <div class="w-full max-w-sm">
     <h2 class="text-md tracking-tight">Star Rating</h2>
-    <div class="flex flex-wrap gap-1 pt-3">
+    <div class="flex flex-wrap gap-1 py-1">
       <Icon
         v-for="rating in 5"
         :key="rating"

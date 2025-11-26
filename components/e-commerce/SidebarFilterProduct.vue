@@ -12,6 +12,10 @@
       <Input id="search" type="text" placeholder="Search" class="pl-10" />
     </div>
 
+    <!-- Sort By -->
+    <SortBy class="pt-4" />
+    <Separator class="my-4" />
+
     <!-- Categories -->
     <FilterCategories />
     <Separator class="my-4" />
@@ -20,14 +24,14 @@
     <h2 class="text-lg font-bold tracking-tight">Filter by</h2>
 
     <!-- Price -->
-    <FilterPrice />
-    <Separator class="my-4" />
+    <FilterPrice class="pt-2" />
 
     <!-- Star Rating -->
-    <FilterStarRating />
-    <Separator class="my-4" />
+    <FilterStarRating class="pt-2" />
 
-    <Button> Clear all filters </Button>
+    <div class="flex mt-auto">
+      <Button class="size-full"> Clear all filters </Button>
+    </div>
   </div>
 </template>
 
