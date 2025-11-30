@@ -28,50 +28,6 @@ It is designed to provide a fast, responsive, and simple.
 
 ---
 
-## ⚙️ Project Setup
-
-Make sure you have **Node.js (v20+)** installed and one of the following package managers:
-- npm  
-- pnpm  
-- yarn  
-- bun  
-
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/DaffaSyauqi/BookNest.git
-cd BookNest
-```
-
-### 2️⃣ Install Dependencies
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-### 3️⃣ Run the Development Server
-```bash
-npm run dev
-```
-
----
-
 ### 🧑‍💻 Contributor
 
 @DaffaSyauqi — Main developer of BookNest
-
----
-
-### 📄 License
-
-This project is released under the MIT License — feel free to use and modify it.
-
-
