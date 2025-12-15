@@ -43,6 +43,8 @@ const queryParams = computed(() => ({
   minPrice: filters.priceRange[0],
   maxPrice: filters.priceRange[1],
   rating: filters.rating > 0 ? filters.rating : undefined,
+  sortBy: filters.sortBy,
+  sortOrder: filters.sortOrder,
 }));
 
 const { data, refresh } = await useFetch(baseUrl, {
