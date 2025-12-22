@@ -20,6 +20,7 @@ It is designed to provide a fast, responsive, and simple.
 ## 🧩 Technologies Used
 - [Nuxt 3](https://nuxt.com)
 - [Vue 3](https://vuejs.org/)
+- [Typescript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [shadcn-vue](https://www.shadcn-vue.com/)
 - [Supabase](https://supabase.com/)
