@@ -1,6 +1,6 @@
-# BookNest — E-Commerce Web App 
+# Boook! — E-Commerce Web App 
 
-BookNest is a modern book e-commerce web project built with **Nuxt 3**.  
+Boook! is a modern book e-commerce web project.  
 It is designed to provide a fast, responsive, and simple.
 
 ---
