@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
+  alias: {
+    "@lib": "/app/lib",
+  },
   components: [
     {
       path: "~/components",
