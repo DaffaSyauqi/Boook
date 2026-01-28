@@ -1,4 +1,5 @@
-import { verifyToken } from "~/server/api/auth/modules/jwtToken";
+import { verifyToken } from "#server/api/auth/modules/jwtToken";
+import { s } from "vue-router/dist/router-CWoNjPRp.mjs";
 
 export default defineEventHandler(async (event) => {
   const authHeader = getHeader(event, "authorization");
@@ -10,7 +11,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const accessToken = authHeader.split(" ")[1];
+  const accessToken: any = authHeader.split(" ")[1];
 
   try {
     const payload = await verifyToken(accessToken);
