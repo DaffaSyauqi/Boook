@@ -17,7 +17,7 @@
                   <Icon name="lucide-book-open" size="32" />
                 </div>
               </NuxtLink>
-              <h1 class="text-xl font-bold">Welcome to BookNest.</h1>
+              <h1 class="text-xl font-bold">Welcome to Boook!</h1>
               <div class="text-center text-sm">
                 Already have an account?
                 <NuxtLink to="/auth/login" class="underline underline-offset-4">

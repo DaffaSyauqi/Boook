@@ -14,7 +14,7 @@
                 <div class="flex size-8 items-center justify-center rounded-md">
                   <Icon name="lucide-book-open" size="32" />
                 </div>
-                <span class="sr-only">BookNest</span>
+                <span class="sr-only">Boook!</span>
               </NuxtLink>
               <h1 class="text-xl font-bold">Enter verification code</h1>
               <FieldDescription>
