@@ -13,7 +13,7 @@
               </AvatarFallback>
             </Avatar>
             <div class="flex flex-col gap-0.5 leading-none">
-              <span class="truncate font-medium"> BookNest </span>
+              <span class="truncate font-medium"> Boook! </span>
             </div>
           </div>
         </NuxtLink>
