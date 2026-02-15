@@ -1,7 +1,13 @@
 <template>
-  <div>
-    <h1>index</h1>
-  </div>
+  <Navbar />
+  <Hero />
+  <Clients />
+  <Services />
+  <CaseStudies />
+  <WorkingProcess />
+  <Team />
+  <Testimonials />
+  <Footer />
 </template>
 
 <script setup lang="ts">
