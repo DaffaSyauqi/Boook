@@ -3,37 +3,24 @@
 <template>
   <footer class="mx-auto container px-0 md:px-8 pt-5 md:pt-10 text-white">
     <div class="bg-secondary rounded-0 lg:rounded-t-3xl px-10 pt-10">
-      <div class="flex justify-center lg:justify-start">
-        <NuxtImg src="/images/logo-dark.png" alt="Logo" width="150" />
-      </div>
-
       <div
         class="py-10 grid grid-cols-1 lg:grid-cols-2 gap-5 items-center lg:items-start lg:justify-between"
       >
-        <div class="flex flex-col items-center lg:items-start gap-y-4">
-          <SectionHeader header="Contact Info" />
-
-          <div class="space-y-2">
-            <div class="flex items-center space-x-2">
-              <Icon name="mdi:email" size="20" />
-              <span>info@positivus.com</span>
-            </div>
-
-            <div class="flex items-center space-x-2">
-              <Icon name="mdi:phone" size="20" />
-              <span>123-456-7890</span>
-            </div>
-
-            <div class="flex items-center space-x-2">
-              <Icon name="mdi:location" size="20" />
-              <div class="flex flex-col">
-                <span>Apt. 883 3771 Brigid Isle,</span>
-                <span>Schulistland, MO 21665-4924</span>
-              </div>
+        <NuxtLink to="/">
+          <div class="flex items-center gap-2">
+            <Avatar class="h-12 w-12 rounded-lg">
+              <AvatarImage src="" />
+              <AvatarFallback
+                class="rounded-lg bg-primary text-primary-foreground"
+              >
+                <Icon name="lucide-book-open" size="24" />
+              </AvatarFallback>
+            </Avatar>
+            <div class="flex flex-col gap-0.5 leading-none">
+              <span class="truncate font-medium"> Boook! </span>
             </div>
           </div>
-        </div>
-
+        </NuxtLink>
         <div
           class="h-full flex flex-col items-center lg:items-end justify-between gap-6 lg:gap-0"
         >
