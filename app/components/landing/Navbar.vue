@@ -1,37 +1,6 @@
-<script setup lang="ts">
-import { useColorMode } from "@vueuse/core";
-import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-vue-next";
-
-const mode = useColorMode();
-
-const navigation = [
-  {
-    label: "About us",
-    to: "#",
-  },
-  {
-    label: "Services",
-    to: "#",
-  },
-  {
-    label: "Use Cases",
-    to: "#",
-  },
-  {
-    label: "Pricing",
-    to: "#",
-  },
-  {
-    label: "Blog",
-    to: "#",
-  },
-];
-</script>
-
 <template>
   <nav
-    class="flex justify-between items-center px-2 sm:px-6 lg:px-12 xl:px-20 py-4 sticky top-0 z-20 backdrop-blur-xl bg-(--background)/50 dark:bg-(--background)/70"
+    class="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl bg-(--background)/50 dark:bg-(--background)/70"
   >
     <NuxtLink to="/">
       <div class="flex items-center gap-2">
@@ -47,32 +16,77 @@ const navigation = [
       </div>
     </NuxtLink>
 
-    <NavbarMenu class="hidden lg:block" :navigation />
-
     <div class="flex items-center space-x-2">
-      <Button
-        variant="outline"
-        @click="mode = mode === 'light' ? 'dark' : 'light'"
-      >
-        <Moon
-          v-if="mode === 'light'"
-          class="group-hover:text-secondary dark:group-hover:text-primary transition-all"
-        />
-        <Sun
-          v-else
-          class="group-hover:text-secondary dark:group-hover:text-primary transition-all"
-        />
-      </Button>
-
-      <NuxtLink to="#">
-        <Button
-          variant="outline"
-          class="hidden lg:block dark:hover:text-primary"
-          >Request Quote</Button
-        >
+      <NuxtLink to="/e-commerce/home">
+        <Button variant="outline" size="icon" class="size-8">
+          <Icon name="lucide-shopping-cart" />
+        </Button>
       </NuxtLink>
 
-      <NavbarSheet class="lg:hidden" :navigation />
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Avatar class="h-8 w-8 rounded-lg">
+            <AvatarImage src="" />
+            <AvatarFallback class="rounded-lg">
+              <Icon name="lucide-user"
+            /></AvatarFallback>
+          </Avatar>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent class="w-64" align="end">
+          <DropdownMenuLabel class="font-normal flex">
+            <div class="flex flex-col space-y-1">
+              <p class="text-sm font-medium leading-none">{{ name }}</p>
+              <p class="text-xs leading-none text-muted-foreground">
+                {{ email }}
+              </p>
+            </div>
+            <div class="ml-auto">
+              <Button
+                variant="outline"
+                size="icon"
+                class="group/toggle size-8"
+                @click="
+                  colorMode.preference =
+                    colorMode.preference === 'light' ? 'dark' : 'light'
+                "
+              >
+                <Icon v-show="!isDark" name="lucide-sun" />
+                <Icon v-show="isDark" name="lucide-moon" />
+                <span class="sr-only">Toggle theme</span>
+              </Button>
+            </div>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <NuxtLink to="/auth/login">
+            <DropdownMenuItem>
+              <Icon name="lucide-log-in" />
+              Login
+            </DropdownMenuItem>
+          </NuxtLink>
+          <NuxtLink to="/auth/register">
+            <DropdownMenuItem>
+              <Icon name="lucide-user-plus" />
+              Register
+            </DropdownMenuItem>
+          </NuxtLink>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   </nav>
 </template>
+
+<script setup lang="ts">
+const colorMode = useColorMode();
+const isDark = computed(() => colorMode.value === "dark");
+
+const rawUserCookie: any = useCookie("user");
+
+const userCookie = computed(() => {
+  return rawUserCookie.value || {};
+});
+
+const name = computed(() => userCookie.value?.data?.user?.name ?? "Guest");
+const email = computed(
+  () => userCookie.value?.data?.user?.email ?? "guest@guest.com"
+);
+</script>
