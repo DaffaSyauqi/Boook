@@ -74,7 +74,7 @@ const data = [
 </script>
 
 <template>
-  <section class="container mx-auto px-8 py-10">
+  <section class="container mx-auto px-8 py-10" id="best-seller">
     <SectionHeader
       header="Best Selling Book"
       subheader="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
@@ -158,28 +158,6 @@ const data = [
           </Button>
         </div>
       </Carousel>
-    </div>
-
-    <div
-      class="flex items-center bg-muted rounded-2xl my-12 px-15 py-12 lg:py-0"
-    >
-      <div class="left flex flex-col gap-5">
-        <h3 class="font-medium text-3xl">Let's make things happen</h3>
-        <p class="w-full md:w-1/2">
-          Contact us today to learn more about how our digital marketing
-          services can help your business grow and succeed online.
-        </p>
-
-        <Button
-          size="lg"
-          class="w-fit bg-secondary text-secondary-foreground hover:text-primary-foreground"
-          >Get your free proposal</Button
-        >
-      </div>
-
-      <div class="w-2/4 hidden md:block">
-        <NuxtImg src="" alt="Service Image" width="300" />
-      </div>
     </div>
   </section>
 </template>

@@ -2,9 +2,9 @@
 import { Button } from "@/components/ui/button";
 
 const data = {
-  title: "Navigating the digital landscape for success",
+  title: "Boook! Open Your World.",
   description:
-    "Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.",
+    "From bestselling fiction to transformative non-fiction. Carefully curated for readers who seek more.",
   image: "illustration/hero.png",
 };
 </script>
@@ -28,7 +28,7 @@ const data = {
         <Button
           size="lg"
           class="bg-secondary dark:bg-primary text-secondary-foreground hover:text-primary-foreground dark:text-primary-foreground cursor-pointer"
-          >Book Consultation</Button
+          >Shop Collection</Button
         >
       </NuxtLink>
     </div>
