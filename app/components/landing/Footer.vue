@@ -8,7 +8,6 @@
       >
         <div class="flex items-center gap-2">
           <Avatar class="h-12 w-12 rounded-lg">
-            <AvatarImage src="" />
             <AvatarFallback
               class="rounded-lg bg-primary text-primary-foreground"
             >
