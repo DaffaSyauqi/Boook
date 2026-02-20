@@ -2,10 +2,9 @@
 import { Button } from "@/components/ui/button";
 
 const data = {
-  title: "Boook! Open Your World.",
+  title: "Open Your World.",
   description:
-    "From bestselling fiction to transformative non-fiction. Carefully curated for readers who seek more.",
-  image: "illustration/hero.png",
+    "A world of stories waiting to be yours. Browse our collection, and open your world with books delivered straight to your door.",
 };
 </script>
 
@@ -19,12 +18,12 @@ const data = {
           {{ data.title }}
         </h1>
 
-        <p class="w-5/6 md:w-4/9 text-muted-foreground">
+        <p class="w-6/7 md:w-4/9 text-muted-foreground">
           {{ data.description }}
         </p>
       </div>
 
-      <NuxtLink to="#">
+      <NuxtLink to="/e-commerce/home">
         <Button
           size="lg"
           class="bg-secondary dark:bg-primary text-secondary-foreground hover:text-primary-foreground dark:text-primary-foreground cursor-pointer"
@@ -34,12 +33,7 @@ const data = {
     </div>
 
     <div class="mt-12 md:mt-0">
-      <NuxtImg
-        :src="data.image"
-        alt="Illustration"
-        width="100%"
-        class="object-contain dark:invert"
-      />
+      <IconWorld class="w-96 h-96" />
     </div>
   </header>
 </template>
