@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
@@ -12,7 +13,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -37,38 +37,83 @@ watchOnce(api, (api) => {
 const data = [
   {
     id: 1,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
+    title: "Atomic Habits",
+    author: "James Clear",
+    rating: 5,
+    price: 18.99,
+    image: "https://picsum.photos/200/300?random=1",
   },
   {
     id: 2,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
+    title: "The Psychology of Money",
+    author: "Morgan Housel",
+    rating: 4,
+    price: 16.5,
+    image: "https://picsum.photos/200/300?random=2",
   },
   {
     id: 3,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
+    title: "Deep Work",
+    author: "Cal Newport",
+    rating: 5,
+    price: 21.0,
+    image: "https://picsum.photos/200/300?random=3",
   },
   {
     id: 4,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
+    title: "Rich Dad Poor Dad",
+    author: "Robert T. Kiyosaki",
+    rating: 4,
+    price: 14.99,
+    image: "https://picsum.photos/200/300?random=4",
   },
   {
     id: 5,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
+    title: "Think and Grow Rich",
+    author: "Napoleon Hill",
+    rating: 4,
+    price: 12.75,
+    image: "https://picsum.photos/200/300?random=5",
+  },
+  {
+    id: 6,
+    title: "The Lean Startup",
+    author: "Eric Ries",
+    rating: 4,
+    price: 19.99,
+    image: "https://picsum.photos/200/300?random=6",
+  },
+  {
+    id: 7,
+    title: "Sapiens",
+    author: "Yuval Noah Harari",
+    rating: 5,
+    price: 22.5,
+    image: "https://picsum.photos/200/300?random=7",
+  },
+  {
+    id: 8,
+    title: "The Power of Now",
+    author: "Eckhart Tolle",
+    rating: 4,
+    price: 17.99,
+    image: "https://picsum.photos/200/300?random=8",
+  },
+  {
+    id: 9,
+    title: "Good to Great",
+    author: "Jim Collins",
+    rating: 5,
+    price: 20.0,
+    image: "https://picsum.photos/200/300?random=9",
+  },
+  {
+    id: 10,
+    title: "The 7 Habits of Highly Effective People",
+    author: "Stephen Covey",
+    rating: 4,
+    price: 19.5,
+    image: "https://picsum.photos/200/300?random=10",
   },
 ];
 </script>
@@ -76,83 +121,87 @@ const data = [
 <template>
   <section class="container mx-auto px-8 py-10" id="best-seller">
     <SectionHeader
-      header="Best Selling Book"
-      subheader="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+      header="Best Sellers"
+      subheader="The books everyone is reading right now."
     />
 
-    <div class="bg-secondary dark:bg-muted py-12 my-12 rounded-3xl">
+    <div class="">
       <Carousel
         v-slot="{ canScrollNext, canScrollPrev, scrollPrev, scrollNext }"
         @init-api="setApi"
         :opts="{ loop: true }"
+        class="p-6"
       >
-        <CarouselContent class="px-6 md:px-0">
+        <CarouselContent class="-ml-3">
           <CarouselItem
-            v-for="testimonial in data"
-            :key="testimonial.id"
-            class="basis-1/1 md:basis-1/2"
+            v-for="book in data"
+            :key="book.id"
+            class="basis-auto pl-3"
           >
-            <Card class="bg-secondary border-primary">
-              <CardContent class="text-muted dark:text-muted-foreground">
-                <span>"{{ testimonial.review }}"</span>
-              </CardContent>
+            <Card class="bg-transparent border-none shadow-none w-64">
+              <CardContent class="flex flex-col p-0">
+                <!-- Image -->
+                <img
+                  :src="book.image"
+                  :alt="book.title"
+                  class="rounded-lg object-cover w-64 h-96"
+                />
 
-              <CardHeader>
-                <CardTitle class="text-primary">{{
-                  testimonial.author
-                }}</CardTitle>
-                <CardDescription
-                  class="text-muted dark:text-muted-foreground"
-                  >{{ testimonial.major }}</CardDescription
-                >
-              </CardHeader>
+                <!-- Info -->
+                <div class="mt-3 space-y-1 text-center">
+                  <h1 class="text-md font-semibold line-clamp-2 truncate">
+                    {{ book.title }}
+                  </h1>
+
+                  <p class="text-xs text-muted-foreground">
+                    {{ book.author }}
+                  </p>
+
+                  <div class="flex items-center justify-center gap-1">
+                    <Icon
+                      v-for="n in 5"
+                      :key="n"
+                      name="lucide:star"
+                      size="14"
+                      :class="
+                        n <= book.rating ? 'text-yellow-500' : 'text-muted'
+                      "
+                    />
+                    <span class="text-xs text-muted-foreground ml-1"
+                      >(100)</span
+                    >
+                  </div>
+
+                  <p class="text-sm font-bold">${{ book.price }}</p>
+                </div>
+              </CardContent>
             </Card>
           </CarouselItem>
         </CarouselContent>
 
-        <div class="mt-8 flex items-center justify-center gap-4 md:gap-10">
+        <div class="mt-2 flex items-center justify-end gap-2 md:gap-6">
           <Button
-            variant="secondary"
+            variant="link"
             size="icon"
             :disabled="!canScrollPrev"
             @click="scrollPrev"
           >
             <Icon
-              name="mdi:arrow-left"
-              size="22"
+              name="lucide:arrow-left"
+              size="24"
               class="dark:group-hover:text-primary cursor-pointer"
             />
           </Button>
 
-          <div class="space-x-2 hidden md:block">
-            <Button
-              v-for="(_, index) in count"
-              :key="index"
-              variant="secondary"
-              size="icon"
-              @click="api?.scrollTo(index)"
-            >
-              <Icon
-                name="mdi:star-four-points"
-                size="20"
-                :class="
-                  cn('dark:group-hover:text-primary cursor-pointer', {
-                    'text-primary': current === index + 1,
-                  })
-                "
-              />
-            </Button>
-          </div>
-
           <Button
-            variant="secondary"
+            variant="link"
             size="icon"
             :disabled="!canScrollNext"
             @click="scrollNext"
           >
             <Icon
-              name="mdi:arrow-right"
-              size="22"
+              name="lucide:arrow-right"
+              size="24"
               class="dark:group-hover:text-primary cursor-pointer"
             />
           </Button>
