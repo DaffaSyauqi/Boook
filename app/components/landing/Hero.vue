@@ -25,7 +25,7 @@
     </div>
 
     <div class="mt-12 md:mt-0">
-      <IconWorld class="w-96 h-96 md:w-112 md:h-112" />
+      <IconWorld class="w-96 h-96" />
     </div>
   </header>
 </template>
