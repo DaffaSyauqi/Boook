@@ -1,24 +1,16 @@
-<script setup lang="ts">
-import { Button } from "@/components/ui/button";
-
-const data = {
-  title: "Open Your World.",
-  description:
-    "A world of stories waiting to be yours. Browse our collection, and open your world with books delivered straight to your door.",
-};
-</script>
-
 <template>
   <header
-    class="container px-6 mx-auto py-10 flex flex-col lg:flex-row items-center justify-between"
+    class="min-h-screen container px-16 mx-auto py-8 flex flex-col lg:flex-row items-center justify-between"
   >
-    <div class="w-full space-y-4">
-      <div class="space-y-2">
-        <h1 class="w-4/4 md:w-2/3 text-5xl md:text-6xl font-bold">
+    <div
+      class="w-full space-y-6 items-center lg:items-start text-center lg:text-left"
+    >
+      <div class="space-y-4">
+        <h1 class="text-5xl md:text-7xl font-bold">
           {{ data.title }}
         </h1>
 
-        <p class="w-6/7 md:w-4/9 text-muted-foreground">
+        <p class="md:w-4/5 text-muted-foreground text-center md:text-left">
           {{ data.description }}
         </p>
       </div>
@@ -33,7 +25,15 @@ const data = {
     </div>
 
     <div class="mt-12 md:mt-0">
-      <IconWorld class="w-96 h-96" />
+      <IconWorld class="w-96 h-96 md:w-112 md:h-112" />
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const data = {
+  title: "Open Your World.",
+  description:
+    "A world of stories waiting to be yours. Browse our collection, and open your world with books delivered straight to your door.",
+};
+</script>
