@@ -17,19 +17,43 @@
 
     <div class="flex items-center space-x-2">
       <NuxtLink to="/e-commerce/home">
-        <Button variant="outline" size="icon" class="size-8">
-          <Icon name="lucide-shopping-cart" />
-        </Button>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="secondary"
+                size="icon"
+                class="size-8 cursor-pointer"
+              >
+                <Icon name="lucide-shopping-cart" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Shop</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </NuxtLink>
 
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <Avatar class="h-8 w-8 rounded-lg">
-            <AvatarImage src="" />
-            <AvatarFallback class="rounded-lg">
-              <Icon name="lucide-user"
-            /></AvatarFallback>
-          </Avatar>
+          <div>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger as-child>
+                  <Avatar class="h-8 w-8 rounded-lg cursor-pointer">
+                    <AvatarImage src="" />
+                    <AvatarFallback class="rounded-lg">
+                      <Icon name="lucide-user" />
+                    </AvatarFallback>
+                  </Avatar>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Account</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent class="w-64" align="end">
           <DropdownMenuLabel class="font-normal flex">

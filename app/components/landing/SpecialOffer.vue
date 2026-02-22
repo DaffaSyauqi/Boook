@@ -41,7 +41,7 @@
           </p>
 
           <div class="flex gap-4 pt-6">
-            <Button size="lg"> Buy Now </Button>
+            <Button class="cursor-pointer" size="lg"> Buy Now </Button>
           </div>
         </div>
       </div>

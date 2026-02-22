@@ -18,7 +18,7 @@
             :key="book.id"
             class="basis-auto pl-3"
           >
-            <Nuxtlink>
+            <NuxtLink>
               <Card
                 class="bg-transparent border-none shadow-none w-64 cursor-pointer"
               >
@@ -58,7 +58,7 @@
                   </div>
                 </CardContent>
               </Card>
-            </Nuxtlink>
+            </NuxtLink>
           </CarouselItem>
         </CarouselContent>
 
