@@ -10,10 +10,11 @@
     >
       <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
         <div class="flex">
-          <img
+          <NuxtImg
             src="https://picsum.photos/300/420"
             alt="Book Cover"
-            class="w-60 md:w-72 rounded-xl object-cover"
+            class="w-60 md:w-72 rounded-lg object-cover"
+            placeholder
           />
         </div>
 
