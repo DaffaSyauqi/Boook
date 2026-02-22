@@ -1,105 +1,64 @@
-<script setup lang="ts">
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-import { watchOnce } from "@vueuse/core";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-const api = ref<CarouselApi>();
-const count = ref(0);
-const current = ref(0);
-
-const setApi = (value: CarouselApi) => (api.value = value);
-
-watchOnce(api, (api) => {
-  if (!api) return;
-
-  count.value = api.scrollSnapList().length;
-  current.value = api.selectedScrollSnap() + 1;
-
-  api.on("select", () => {
-    current.value = api.selectedScrollSnap() + 1;
-  });
-});
-
-const data = [
-  {
-    id: 1,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
-  },
-  {
-    id: 2,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
-  },
-  {
-    id: 3,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
-  },
-  {
-    id: 4,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
-  },
-  {
-    id: 5,
-    review:
-      "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
-    author: "John Smith",
-    major: "Marketing Director at XYZ Corp",
-  },
-];
-</script>
-
 <template>
-  <section class="container mx-auto px-8 py-10" id="special-offer">
+  <section class="container mx-auto md:px-8 py-10" id="special-offer">
     <SectionHeader
       header="Special Offer"
-      subheader="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+      subheader="Get our featured book at an exclusive discounted price. Don’t miss your chance to grab this bestseller before the offer ends."
     />
 
     <div
-      class="flex items-center bg-muted rounded-2xl my-12 px-15 py-12 lg:py-0"
+      class="bg-muted flex justify-center rounded-3xl my-12 p-8 md:p-12 md:m-6"
     >
-      <div class="left flex flex-col gap-5">
-        <h3 class="font-medium text-3xl">Let's make things happen</h3>
-        <p class="w-full md:w-1/2">
-          Contact us today to learn more about how our digital marketing
-          services can help your business grow and succeed online.
-        </p>
+      <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
+        <div class="flex">
+          <img
+            src="https://picsum.photos/300/420"
+            alt="Book Cover"
+            class="w-60 md:w-72 rounded-xl object-cover"
+          />
+        </div>
 
-        <Button
-          size="lg"
-          class="w-fit bg-secondary text-secondary-foreground hover:text-primary-foreground"
-          >Get your free proposal</Button
-        >
-      </div>
+        <div class="flex flex-col pt-6 max-w-xl items-center md:items-start">
+          <h1 class="text-2xl md:text-4xl font-semibold">{{ book.title }}</h1>
 
-      <div class="w-2/4 hidden md:block">
-        <NuxtImg src="" alt="Service Image" width="300" />
+          <p class="text-xs md:text-sm text-muted-foreground">
+            by {{ book.by }} - {{ book.category }}
+          </p>
+
+          <div class="flex items-center gap-3 pt-2">
+            <!-- Discount Price -->
+            <p class="text-3xl font-bold">${{ book.price_discount }}</p>
+
+            <!-- Original Price -->
+            <p class="text-lg text-muted-foreground line-through">
+              ${{ book.price }}
+            </p>
+          </div>
+
+          <p
+            class="text-xs md:text-sm text-muted-foreground leading-relaxed pt-6 text-center md:text-left"
+          >
+            {{ book.synopsis }}
+          </p>
+
+          <div class="flex gap-4 pt-6">
+            <Button size="lg"> Buy Now </Button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const book = {
+  id: 1,
+  title: "The Broken Kingdom",
+  by: "Lorem Ipsum",
+  category: "Business",
+  price: 19.0,
+  price_discount: 9.0,
+  synopsis:
+    "You think some names fail. You should see it. It moves like it has no mind. Like it knows it killed the world once and got a taste for murdering. You should see the moves like it’s done this before.",
+  image: "https://picsum.photos/300/420",
+};
+</script>
