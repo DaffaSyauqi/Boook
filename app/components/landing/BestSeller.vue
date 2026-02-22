@@ -1,21 +1,101 @@
+<template>
+  <section class="container mx-auto px-8 py-10" id="best-seller">
+    <SectionHeader
+      header="Best Sellers"
+      subheader="The books everyone is reading right now."
+    />
+
+    <div class="">
+      <Carousel
+        v-slot="{ canScrollNext, canScrollPrev, scrollPrev, scrollNext }"
+        @init-api="setApi"
+        :opts="{ loop: true }"
+        class="p-6"
+      >
+        <CarouselContent class="-ml-3">
+          <CarouselItem
+            v-for="book in data"
+            :key="book.id"
+            class="basis-auto pl-3"
+          >
+            <Nuxtlink>
+              <Card
+                class="bg-transparent border-none shadow-none w-64 cursor-pointer"
+              >
+                <CardContent class="flex flex-col p-0">
+                  <NuxtImg
+                    :src="book.image"
+                    :alt="book.title"
+                    class="rounded-lg object-cover w-64 h-96"
+                    placeholder
+                  />
+
+                  <div class="mt-3 space-y-1 text-center">
+                    <h1 class="text-md font-semibold line-clamp-2 truncate">
+                      {{ book.title }}
+                    </h1>
+
+                    <p class="text-xs text-muted-foreground">
+                      {{ book.author }}
+                    </p>
+
+                    <div class="flex items-center justify-center gap-1">
+                      <Icon
+                        v-for="n in 5"
+                        :key="n"
+                        name="lucide:star"
+                        size="14"
+                        :class="
+                          n <= book.rating ? 'text-yellow-500' : 'text-muted'
+                        "
+                      />
+                      <span class="text-xs text-muted-foreground ml-1"
+                        >(100)</span
+                      >
+                    </div>
+
+                    <p class="text-sm font-bold">${{ book.price }}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Nuxtlink>
+          </CarouselItem>
+        </CarouselContent>
+
+        <div class="mt-2 flex items-center justify-end gap-2 md:gap-6">
+          <Button
+            variant="link"
+            size="icon"
+            :disabled="!canScrollPrev"
+            @click="scrollPrev"
+          >
+            <Icon
+              name="lucide:arrow-left"
+              size="24"
+              class="dark:group-hover:text-primary cursor-pointer"
+            />
+          </Button>
+
+          <Button
+            variant="link"
+            size="icon"
+            :disabled="!canScrollNext"
+            @click="scrollNext"
+          >
+            <Icon
+              name="lucide:arrow-right"
+              size="24"
+              class="dark:group-hover:text-primary cursor-pointer"
+            />
+          </Button>
+        </div>
+      </Carousel>
+    </div>
+  </section>
+</template>
+
 <script setup lang="ts">
-import { ref } from "vue";
 import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-import { watchOnce } from "@vueuse/core";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const api = ref<CarouselApi>();
 const count = ref(0);
@@ -117,96 +197,3 @@ const data = [
   },
 ];
 </script>
-
-<template>
-  <section class="container mx-auto px-8 py-10" id="best-seller">
-    <SectionHeader
-      header="Best Sellers"
-      subheader="The books everyone is reading right now."
-    />
-
-    <div class="">
-      <Carousel
-        v-slot="{ canScrollNext, canScrollPrev, scrollPrev, scrollNext }"
-        @init-api="setApi"
-        :opts="{ loop: true }"
-        class="p-6"
-      >
-        <CarouselContent class="-ml-3">
-          <CarouselItem
-            v-for="book in data"
-            :key="book.id"
-            class="basis-auto pl-3"
-          >
-            <Card class="bg-transparent border-none shadow-none w-64">
-              <CardContent class="flex flex-col p-0">
-                <!-- Image -->
-                <img
-                  :src="book.image"
-                  :alt="book.title"
-                  class="rounded-lg object-cover w-64 h-96"
-                />
-
-                <!-- Info -->
-                <div class="mt-3 space-y-1 text-center">
-                  <h1 class="text-md font-semibold line-clamp-2 truncate">
-                    {{ book.title }}
-                  </h1>
-
-                  <p class="text-xs text-muted-foreground">
-                    {{ book.author }}
-                  </p>
-
-                  <div class="flex items-center justify-center gap-1">
-                    <Icon
-                      v-for="n in 5"
-                      :key="n"
-                      name="lucide:star"
-                      size="14"
-                      :class="
-                        n <= book.rating ? 'text-yellow-500' : 'text-muted'
-                      "
-                    />
-                    <span class="text-xs text-muted-foreground ml-1"
-                      >(100)</span
-                    >
-                  </div>
-
-                  <p class="text-sm font-bold">${{ book.price }}</p>
-                </div>
-              </CardContent>
-            </Card>
-          </CarouselItem>
-        </CarouselContent>
-
-        <div class="mt-2 flex items-center justify-end gap-2 md:gap-6">
-          <Button
-            variant="link"
-            size="icon"
-            :disabled="!canScrollPrev"
-            @click="scrollPrev"
-          >
-            <Icon
-              name="lucide:arrow-left"
-              size="24"
-              class="dark:group-hover:text-primary cursor-pointer"
-            />
-          </Button>
-
-          <Button
-            variant="link"
-            size="icon"
-            :disabled="!canScrollNext"
-            @click="scrollNext"
-          >
-            <Icon
-              name="lucide:arrow-right"
-              size="24"
-              class="dark:group-hover:text-primary cursor-pointer"
-            />
-          </Button>
-        </div>
-      </Carousel>
-    </div>
-  </section>
-</template>
