@@ -46,6 +46,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "nuxt-nodemailer",
     "@nuxtjs/color-mode",
+    "@nuxt/image",
   ],
   shadcn: {
     /**
