@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col w-[256px] max-w-[256px] h-screen p-6 border border-secondary border-[1px] sticky top-0"
+    class="flex flex-col w-[256px] max-w-[256px] h-screen p-6 border-secondary border-[1px] sticky top-0"
   >
     <!-- Search -->
     <div class="relative w-full max-w-sm">
@@ -30,7 +30,7 @@
     <FilterStarRating class="pt-2" />
 
     <div class="flex mt-auto">
-      <Button class="size-full"> Clear all filters </Button>
+      <Button class="size-full cursor-pointer"> Clear all filters </Button>
     </div>
   </div>
 </template>

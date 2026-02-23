@@ -7,7 +7,7 @@
         :min="0"
         :max="1000"
         :step="5"
-        class="w-full"
+        class="w-full cursor-pointer"
         @update:model-value="(value) => updatePriceRange(value as [number, number])"
       />
       <div class="flex justify-between text-sm text-muted-foreground pt-2">

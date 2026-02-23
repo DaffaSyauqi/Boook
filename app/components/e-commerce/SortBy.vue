@@ -6,7 +6,7 @@
       <ButtonGroup class="w-full">
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
-            <Button variant="outline" class="flex-1">
+            <Button variant="outline" class="flex-1 cursor-pointer">
               <span class="truncate">{{ sortLabel }}</span>
             </Button>
           </DropdownMenuTrigger>
@@ -31,7 +31,7 @@
           <DropdownMenuTrigger as-child>
             <Button
               variant="outline"
-              class="shrink-0 w-12 flex items-center justify-center gap-1"
+              class="shrink-0 w-12 flex items-center justify-center gap-1 cursor-pointer"
             >
               <Icon
                 :name="
