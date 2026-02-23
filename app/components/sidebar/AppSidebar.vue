@@ -5,7 +5,6 @@
     </SidebarHeader>
     <SidebarContent>
       <NavMain :items="data.navMain" />
-      <NavSecondary :items="data.NavSecondary" class="mt-auto" />
     </SidebarContent>
     <SidebarFooter>
       <NavUser v-if="userCookie" />
@@ -40,18 +39,6 @@ const data = {
       title: "Settings",
       url: "/e-commerce/setting",
       icon: "lucide-settings",
-    },
-  ],
-  NavSecondary: [
-    {
-      title: "About",
-      url: "/about",
-      icon: "lucide-book-open",
-    },
-    {
-      title: "Contact",
-      url: "/contact",
-      icon: "lucide-phone-call",
     },
   ],
 };
