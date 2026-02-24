@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 p-12">
     <div class="w-full sm:w-auto justify-self-center items-self-center pt-2">
-      <!-- Carousel Utama -->
+      <!-- Carousel -->
       <Carousel
         class="relative w-[320px] max-w-xs"
         @init-api="(val) => (emblaMainApi = val)"
@@ -80,7 +80,9 @@
         <div class="flex justify-end">
           <Dialog>
             <DialogTrigger>
-              <Button variant="link" size="sm" class="">Read More</Button>
+              <Button variant="link" size="sm" class="cursor-pointer"
+                >Read More</Button
+              >
             </DialogTrigger>
             <DialogContent>
               <DescriptionDialog />
@@ -109,13 +111,13 @@
 
       <!-- Buttons -->
       <div class="flex gap-3 mt-2">
-        <Button class="flex-1 items-center" variant="outline">
+        <Button class="flex-1 items-center cursor-pointer" variant="outline">
           <Icon name="lucide-shopping-cart" class="text-xl" />
           Add to cart
         </Button>
         <Dialog>
           <DialogTrigger>
-            <Button class="items-center">
+            <Button class="items-center cursor-pointer">
               <Icon name="lucide-message-square" class="text-xl" />
               Review
             </Button>
