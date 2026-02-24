@@ -60,7 +60,7 @@
             placeholder="Enter a review"
             class="rounded-full"
           />
-          <Button variant="outline" class="rounded-full">
+          <Button variant="outline" class="rounded-full cursor-pointer">
             <Icon name="lucide-send" />
           </Button>
         </ButtonGroup>

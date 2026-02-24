@@ -16,22 +16,22 @@
     <div class="flex gap-36">
       <div class="flex-col space-y-6">
         <div class="flex-col">
-          <h2 class="text-md">Page</h2>
-          <p class="text-sm">240</p>
+          <h2 class="text-md font-bold">Creator</h2>
+          <p class="text-sm">Tatsuki Fujimoto</p>
         </div>
         <div class="flex-col">
-          <h2 class="text-md">Weight</h2>
-          <p class="text-sm">0,50 kg</p>
+          <h2 class="text-md font-bold">Publisher</h2>
+          <p class="text-sm">Shueisha</p>
         </div>
       </div>
       <div class="flex-col space-y-6">
         <div class="flex-col">
-          <h2 class="text-md">Long</h2>
-          <p class="text-sm">20 cm</p>
+          <h2 class="text-md font-bold">Total Page</h2>
+          <p class="text-sm">208</p>
         </div>
         <div class="flex-col">
-          <h2 class="text-md">Wide</h2>
-          <p class="text-sm">18 cm</p>
+          <h2 class="text-md font-bold">Year Released</h2>
+          <p class="text-sm">2022</p>
         </div>
       </div>
     </div>

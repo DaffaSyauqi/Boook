@@ -3,7 +3,7 @@
     <DropdownMenuTrigger as-child>
       <SidebarMenuButton
         size="lg"
-        class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+        class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground cursor-pointer"
       >
         <Avatar class="h-8 w-8 rounded-lg">
           <AvatarImage src="" />
